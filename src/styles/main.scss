@@ -1,6 +1,7 @@
 // Light color palette
 :root {
   --bgColor: #8d99ae;
+  --accentColor: #6c7688;
   --txtColor: #fff;
   --screenColor: #fff;
   --seatColor: #edf2f4;
@@ -11,6 +12,7 @@
 @media (prefers-color-scheme: dark) {
   :root {
     --bgColor: #2b2d42;
+    --accentColor: #1c1d2c;
     --txtColor: #fff;
     --screenColor: #fff;
     --seatColor: #8d99ae;
@@ -28,24 +30,7 @@ $desktop: 1024px;
   color: var(--txtColor);
   font-family: "Lato", sans-serif;
 }
-.app-header {
-  display: flex;
-  gap: 1rem;
-  &__heading {
-    font-size: 16px;
-    letter-spacing: 0.1rem;
-  }
-  &__label {
-    visibility: hidden;
-  }
-}
-.main-header {
-  position: absolute;
-  &__heading {
-    font-size: 12px;
-    font-weight: 300;
-  }
-}
+
 .main {
   min-height: 100vh;
   width: 100%;
@@ -54,4 +39,108 @@ $desktop: 1024px;
   justify-content: center;
   flex-direction: column;
   gap: 2rem;
+}
+
+.main-header {
+  position: absolute;
+  &__heading {
+    font-size: 12px;
+    font-weight: 300;
+  }
+}
+
+.app-header {
+  display: flex;
+  gap: 10px;
+  &__heading {
+    font-size: 18px;
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+  }
+  &__label {
+    visibility: hidden;
+  }
+}
+.app-body {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: center;
+}
+.app-listing {
+  background-color: var(--accentColor);
+  border-radius: 4px;
+  list-style: none;
+  display: flex;
+  gap: 20px;
+  padding: 6px 14px;
+  width: fit-content;
+  &__item {
+    &::before {
+      content: "";
+      border-radius: 50% 50% 0 0;
+      background-color: var(--seatColor);
+      width: 15px;
+      height: 12px;
+      display: inline-block;
+      margin-right: 5px;
+    }
+    &--occupied {
+      &::before {
+        background-color: var(--occupiedSeatColor);
+      }
+    }
+    &--selected {
+      &::before {
+        background-color: var(--selectedSeatColor);
+      }
+    }
+  }
+}
+.app-room {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  perspective: 1000px;
+  width: fit-content;
+  &__screen {
+    width: 100%;
+    height: 70px;
+    background-color: var(--screenColor);
+    transform: rotateX(-45deg);
+    box-shadow: 0 5px 10px rgba(255, 255, 255, 0.7);
+  }
+  &__seats {
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 15px;
+  }
+}
+.seats-row {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  width: fit-content;
+  &--wider {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  &__seat {
+    border-radius: 50% 50% 0 0;
+    border: none;
+    width: 25px;
+    height: 20px;
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+.app-summary {
+  font-size: 18px;
+  font-weight: 300;
+  &__places,
+  &__price {
+    color: var(--occupiedSeatColor);
+    font-weight: 400;
+  }
 }
