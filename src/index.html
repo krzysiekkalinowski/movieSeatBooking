@@ -4,11 +4,81 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Movie Seat Booking</title>
-    <link href="styles/main.scss" type="styles" />
+    <link href="styles/main.scss" rel="stylesheet" type="text/css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
   </head>
-  <body>
+  <body class="app">
     <header class="main-header">
-      <h1 class="main-header__heading">Witaj świecie</h1>
+      <h1 class="main-header__heading">Movie Seat Booking</h1>
     </header>
+    <main class="main">
+      <header class="app-header">
+        <h2 class="app-header__heading">Pick a movie</h2>
+        <select class="app-header__select">
+          <option
+            class="app-header__select-option app-header__select-option--js"
+            value="10"
+          ></option>
+          <option
+            class="app-header__select-option app-header__select-option--js"
+            value="10"
+          ></option>
+          <option
+            class="app-header__select-option app-header__select-option--js"
+            value="10"
+          ></option>
+          <option
+            class="app-header__select-option app-header__select-option--js"
+            value="10"
+          ></option>
+        </select>
+      </header>
+      <section class="app-body">
+        <ul class="app-listing">
+          <li class="app-listing__item app-listing__item--free"></li>
+          <li class="app-listing__item app-listing__item--selected"></li>
+          <li class="app-listing__item app-listing__item--occupied"></li>
+        </ul>
+        <div class="app-room">
+          <span class="app-room__screen"></span>
+          <div class="app-room__seats">
+            <div class="app-room__seats-column">
+              <div
+                class="app-room__seats-column app-room__seats-column--narrow"
+              >
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+              </div>
+              <div class="app-room__seats-column app-room__seats-column--wide">
+                <button class="seat seat--occupied"></button>
+                <button class="seat seat--selected"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+              </div>
+              <div
+                class="app-room__seats-column app-room__seats-column--narrow"
+              >
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+                <button class="seat seat--free"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="scripts/main.js" type="module"></script>
   </body>
 </html>
