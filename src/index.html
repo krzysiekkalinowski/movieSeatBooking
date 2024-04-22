@@ -18,8 +18,9 @@
     </header>
     <main class="main">
       <header class="app-header">
-        <h2 class="app-header__heading">Pick a movie</h2>
-        <select class="app-header__select">
+        <h2 class="app-header__heading">Select a movie</h2>
+        <label for="movie-select" class="app-header__label">Pick a movie</label>
+        <select class="app-header__select" id="movie-select">
           <option
             class="app-header__select-option app-header__select-option--js"
             value="10"
@@ -40,43 +41,71 @@
       </header>
       <section class="app-body">
         <ul class="app-listing">
-          <li class="app-listing__item app-listing__item--free"></li>
-          <li class="app-listing__item app-listing__item--selected"></li>
-          <li class="app-listing__item app-listing__item--occupied"></li>
+          <li class="app-listing__item app-listing__item--free">N/A</li>
+          <li class="app-listing__item app-listing__item--selected">
+            Selected
+          </li>
+          <li class="app-listing__item app-listing__item--occupied">
+            Occupied
+          </li>
         </ul>
         <div class="app-room">
           <span class="app-room__screen"></span>
           <div class="app-room__seats">
-            <div class="app-room__seats-column">
-              <div
-                class="app-room__seats-column app-room__seats-column--narrow"
-              >
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-              </div>
-              <div class="app-room__seats-column app-room__seats-column--wide">
-                <button class="seat seat--occupied"></button>
-                <button class="seat seat--selected"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-              </div>
-              <div
-                class="app-room__seats-column app-room__seats-column--narrow"
-              >
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-                <button class="seat seat--free"></button>
-              </div>
+            <div class="seats-row">
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+            </div>
+            <div class="seats-row">
+              <button
+                class="seats-row__seat seats-row__seat--occupied"
+              ></button>
+              <button
+                class="seats-row__seat seats-row__seat--selected"
+              ></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button
+                class="seats-row__seat seats-row__seat--occupied"
+              ></button>
+              <button
+                class="seats-row__seat seats-row__seat--selected"
+              ></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+            </div>
+            <div class="seats-row">
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
+              <button class="seats-row__seat seats-row__seat--free"></button>
             </div>
           </div>
         </div>
+        <p class="app-summary">
+          You have selected
+          <span class="app-summary__places app-summary__places--js">0</span>
+          seats for a price of
+          <span class="app-summary__price app-summary__price--js">$0</span>
+        </p>
       </section>
     </main>
     <script src="scripts/main.js" type="module"></script>

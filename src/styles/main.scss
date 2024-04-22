@@ -35,6 +35,9 @@ $desktop: 1024px;
     font-size: 16px;
     letter-spacing: 0.1rem;
   }
+  &__label {
+    visibility: hidden;
+  }
 }
 .main-header {
   position: absolute;
