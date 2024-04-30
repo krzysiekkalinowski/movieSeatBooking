@@ -8,13 +8,32 @@ const movieSelect = document.getElementById("movie-select");
 
 let ticketPrice = parseInt(movieSelect.value);
 
+//Save selecte4d movie index and ticket price
+
+function setMovieData(movieIndex, moviePrice) {
+  localStorage.setItem("selectedMovieIndex", movieIndex);
+  localStorage.setItem("selectedMoviePrice", moviePrice);
+}
+
 //Change seat count and price value
 function updateSelectedCount() {
   const selectedSeats = document.querySelectorAll(".seats-row__seat--selected");
+
+  const seatIndex = [...selectedSeats].map((seat) => [...seats].indexOf(seat));
+
+  localStorage.setItem("selectedSeats", JSON.stringify(seatIndex));
+
   const selectedSeatsCount = selectedSeats.length;
   count.innerText = selectedSeatsCount;
   price.innerText = `$${selectedSeatsCount * ticketPrice}`;
 }
+
+//Change movie
+movieSelect.addEventListener("change", (e) => {
+  ticketPrice = parseInt(e.target.value);
+  setMovieData(e.target.selectedIndex, e.target.value);
+  updateSelectedCount();
+});
 
 //Selecting seats
 container.addEventListener("click", (e) => {
