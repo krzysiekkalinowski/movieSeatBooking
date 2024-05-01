@@ -6,10 +6,11 @@ const count = document.querySelector(".app-summary__places");
 const price = document.querySelector(".app-summary__price");
 const movieSelect = document.getElementById("movie-select");
 
+printLocalData();
+
 let ticketPrice = parseInt(movieSelect.value);
 
-//Save selecte4d movie index and ticket price
-
+//Save selected movie index and ticket price
 function setMovieData(movieIndex, moviePrice) {
   localStorage.setItem("selectedMovieIndex", movieIndex);
   localStorage.setItem("selectedMoviePrice", moviePrice);
@@ -35,6 +36,25 @@ movieSelect.addEventListener("change", (e) => {
   updateSelectedCount();
 });
 
+//Collect data from localStorage and print in UI
+function printLocalData() {
+  const selectedSeats = JSON.parse(localStorage.getItem("selectedSeats"));
+  console.log(selectedSeats);
+
+  if (selectedSeats !== null && selectedSeats.length > 0) {
+    seats.forEach((seat, index) => {
+      if (selectedSeats.indexOf(index) > -1) {
+        seat.classList.add("seats-row__seat--selected");
+      }
+    });
+  }
+
+  const selectedMovieIndex = localStorage.getItem("selectedMovieIndex");
+  if (selectedMovieIndex !== null) {
+    movieSelect.selectedIndex = selectedMovieIndex;
+  }
+}
+
 //Selecting seats
 container.addEventListener("click", (e) => {
   if (
@@ -45,3 +65,6 @@ container.addEventListener("click", (e) => {
     updateSelectedCount();
   }
 });
+
+//Initial set
+updateSelectedCount();
